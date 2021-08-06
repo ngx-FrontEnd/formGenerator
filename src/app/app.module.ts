@@ -5,6 +5,8 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { CommonModule } from './shared/modules/common.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +24,9 @@ import { CommonModule } from './shared/modules/common.module';
       //   { name: 'required', message: 'This field is required' },
       // ],
     }),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormlyModule.forRoot({ extras: { lazyRender: true } }),
 
   ],
   providers: [],
