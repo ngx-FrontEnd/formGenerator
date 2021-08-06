@@ -1,0 +1,55 @@
+<div class="container" style="box-shadow: -1px -1px 5px 0px #CBC9D3;">
+	<div class="content" fxLayout="row" fxLayoutGap="20px">
+		<!-- left side -->
+		<div class="leftSide" fxFlex="20">
+			<mat-card>
+				<mat-card-content>
+					<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+						<button class="btn-ctrl-heading" mat-raised-button color="warn"> Controls </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Text Field </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Text Area </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Check Box </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Radio </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Select </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Date </button>
+						<button class="btn-ctrl" mat-raised-button color="primary"> Email </button>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+		<!-- right side -->
+		<div class="rightSide" fxLayout="column" fxFlex="80" fxLayoutGap="20px">
+			<header class="header">
+				<mat-card>
+					<mat-card-title>Form Title</mat-card-title>
+					<mat-card-subtitle>Enter the Form Title</mat-card-subtitle>
+					<mat-card-content>
+						<mat-form-field fxFlex="100" class="example-full-width" appearance="legacy">
+							<mat-label>Label</mat-label>
+							<input matInput placeholder="Header"> </mat-form-field>
+					</mat-card-content>
+				</mat-card>
+			</header>
+			<div class="body">
+				<mat-card style=" min-height: 220px; border: 2px dashed silver;">
+					<mat-card-header>
+						<mat-card-title>Controls</mat-card-title>
+						<!-- <mat-card-subtitle></mat-card-subtitle> --></mat-card-header>
+					<mat-card-content>
+						<div> </div>
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<footer class="footer">
+				<mat-card>
+					<div fxLayout="row" fxLayoutAlign="center">
+						<mat-card-title>JSON Schema</mat-card-title>
+					</div>
+					<div fxLayout="row" fxLayoutAlign="end">
+						<button class="btn-ctrl" mat-raised-button color="accent">Submit</button>
+					</div>
+				</mat-card>
+			</footer>
+		</div>
+	</div>
+</div>
