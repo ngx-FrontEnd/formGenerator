@@ -4,7 +4,7 @@
 		<div class="leftSide" fxFlex="20">
 			<mat-card>
 				<mat-card-content>
-					<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+					<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" >
 						<button class="btn-ctrl-heading" mat-raised-button color="warn"> Controls </button>
 						<button class="btn-ctrl" mat-raised-button color="primary"> Text Field </button>
 						<button class="btn-ctrl" mat-raised-button color="primary"> Text Area </button>
@@ -16,6 +16,7 @@
 					</div>
 				</mat-card-content>
 			</mat-card>
+
 		</div>
 		<!-- right side -->
 		<div class="rightSide" fxLayout="column" fxFlex="80" fxLayoutGap="20px">
@@ -36,8 +37,13 @@
 						<mat-card-title>Controls</mat-card-title>
 						<!-- <mat-card-subtitle></mat-card-subtitle> --></mat-card-header>
 					<mat-card-content>
-						<div> </div>
-					</mat-card-content>
+          	<div>
+							<form [formGroup]="form" (ngSubmit)="submit()">
+								<formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+								<button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+							  </form>
+						</div>
+          	</mat-card-content>
 				</mat-card>
 			</div>
 			<footer class="footer">
@@ -45,6 +51,9 @@
 					<div fxLayout="row" fxLayoutAlign="center">
 						<mat-card-title>JSON Schema</mat-card-title>
 					</div>
+          <div>
+            {{form.value|json}}
+          </div>
 					<div fxLayout="row" fxLayoutAlign="end">
 						<button class="btn-ctrl" mat-raised-button color="accent">Submit</button>
 					</div>

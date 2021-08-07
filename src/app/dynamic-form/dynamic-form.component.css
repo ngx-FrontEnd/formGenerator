@@ -5,6 +5,9 @@
 .content{
   padding: 10px;
 }
+.left{
+  position:fixed;
+}
 
 .btn-ctrl{
 width: 180px;
