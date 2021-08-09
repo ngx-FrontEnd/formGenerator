@@ -9,33 +9,62 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class DynamicFormComponent implements OnInit {
 
-form = new FormGroup({});
+  form = new FormGroup({});
   model = {
-    investments: [{}],
+    textFiled: [{}],
   };
   options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
-      key:'customKey',
-      type: 'repeat',
+      key: 'textFiled',
+      type: 'textFiled',
+
       templateOptions: {
-        addText: 'Add another investment',
+        fxFlex: '50',
+        fxLayout: "row",
+        attributes: {
+          style: 'color:red',
+          class: 'filed'
+        }
+        // addText: 'Add another investment',
       },
+
       fieldArray: {
         fieldGroup: [
           {
-            // className: 'col-sm-4',
-            type:'input',
-            key: 'custom label',
+            key: 'label',
+            type: 'input',
             templateOptions: {
-              label: 'custom label',
-              required: true,
+              label: 'label',
+              appearance: 'outline',
+
             },
+
+
           },
+          {
+            key: 'placeholder',
+            type: 'input',
+            templateOptions: {
+              label: 'Placeholder',
+              placeholder: 'Enter the key value',
+              appearance: 'outline'
+            },
+
+
+            // expressionProperties: {
+            //   'templateOptions.label': 'model.label',
+            // }
+
+          },
+
+
         ],
+
       },
     },
+
   ];
 
   submit() {
@@ -45,6 +74,6 @@ form = new FormGroup({});
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }

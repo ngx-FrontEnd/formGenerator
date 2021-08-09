@@ -4,9 +4,8 @@
 }
 .content{
   padding: 10px;
-}
-.left{
-  position:fixed;
+  position: sticky;
+  top: 0px;
 }
 
 .btn-ctrl{
@@ -17,4 +16,9 @@ width: 180px;
   width: 220px;
 /* background-color:rgb(153, 152, 152);
   color:rgb(255, 255, 255); */
+}
+
+
+.filed{
+color:red
 }

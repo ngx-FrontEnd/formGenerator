@@ -32,8 +32,10 @@ import { DateComponent } from './formControls/date/date.component';
     FormlyModule,
     FormlyMaterialModule,
     FormlyModule.forRoot({
-        types: [
-        { name: 'repeat', component: TextFieldComponent },
+      types: [
+        { name: 'textFiled', component: TextFieldComponent },
+        { name: 'radio', component: RadioComponent },
+        // { name: 'repeat2', component: TextAreaComponent},
       ],
       // validationMessages: [
       //   { name: 'required', message: 'This field is required' },
@@ -41,7 +43,7 @@ import { DateComponent } from './formControls/date/date.component';
     }),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot({ extras: { lazyRender: true } }),
+    // FormlyModule.forRoot({ extras: { lazyRender: true } }),
 
   ],
   providers: [],

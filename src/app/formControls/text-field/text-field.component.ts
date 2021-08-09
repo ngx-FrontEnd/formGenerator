@@ -11,6 +11,7 @@ import { FieldArrayType } from '@ngx-formly/core';
         <button  type="button" (click)="remove(i)">-</button>
       </div>
     </div>
+
     <div style="margin:30px 0;">
       <button  type="button" (click)="add()">+</button>
     </div>
@@ -18,4 +19,4 @@ import { FieldArrayType } from '@ngx-formly/core';
   styles: [
   ]
 })
-export class TextFieldComponent  extends FieldArrayType {}
+export class TextFieldComponent extends FieldArrayType { }
