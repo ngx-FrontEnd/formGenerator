@@ -13,6 +13,8 @@ import { EmailComponent } from './formControls/email/email.component';
 import { TextAreaComponent } from './formControls/text-area/text-area.component';
 import { SelectComponent } from './formControls/select/select.component';
 import { DateComponent } from './formControls/date/date.component';
+import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { DateComponent } from './formControls/date/date.component';
   imports: [
     BrowserModule,
     CommonModule,
-    FormlyModule,
+    FormlyModule,SharedModule,
     FormlyMaterialModule,
     FormlyModule.forRoot({
       types: [

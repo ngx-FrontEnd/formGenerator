@@ -1,0 +1,15 @@
+<!-- <section >
+<ng-container *ngFor="let i of checkBoxValue">
+    <mat-checkbox #name [name]='i' [color]="color"[labelPosition]='labelPosition'  [value]='i' (change)='getValue(name,i)'>{{i}}</mat-checkbox>  
+</ng-container>
+</section>
+
+
+<div *ngFor="let item of storeValue">
+{{item}}
+</div> -->
+<section>
+    <mat-checkbox #name name='' [color]="color"[labelPosition]='labelPosition' (blur)="onTouch()" [value]='value' (input)='change(name)'></mat-checkbox>  
+</section>
+
+

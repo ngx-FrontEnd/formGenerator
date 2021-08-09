@@ -1,0 +1,11 @@
+<mat-form-field class="example-full-width" [appearance]="appearance">
+    <mat-label>{{label}}</mat-label>
+    <textarea matInput [placeholder]="placeholder"  (input)='change($event)' (blur)="onTouched()" [disabled]="disabled" [cols]="cols" [rows]="rows" [attr.minlength]="minlength" [attr.maxlength]="maxlength"></textarea>
+    <mat-hint>
+    <ng-content select='.taxtAreaErrorMessage'></ng-content>
+    </mat-hint>
+
+</mat-form-field>
+<br>
+<br>
+<br>

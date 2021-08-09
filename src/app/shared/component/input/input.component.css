@@ -1,0 +1,7 @@
+.error{
+    color: red;
+    margin-left: 5px;
+}
+::ng-deep.floatLabel{
+    background: #000;
+}
