@@ -6,13 +6,16 @@
         <mat-card-content>
           <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
             <button class="btn-ctrl-heading" mat-raised-button color="warn"> Controls </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Text Field </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Text Area </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Check Box </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Radio </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Select </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Date </button>
-            <button class="btn-ctrl" mat-raised-button color="primary"> Email </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("textFiled")'> Text Field
+            </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("textArea")'> Text Area
+            </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("checkBox")'> Check Box
+            </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("radio")'> Radio </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("select")'> Select </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("date")'> Date </button>
+            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("email")'> Email </button>
           </div>
         </mat-card-content>
       </mat-card>
@@ -35,16 +38,139 @@
       <div class="body">
         <mat-card style=" min-height: 220px; border: 2px dashed silver;">
           <mat-card-header>
-            <mat-card-title>Controls</mat-card-title>
-            <!-- <mat-card-subtitle></mat-card-subtitle> -->
           </mat-card-header>
           <mat-card-content>
             <div>
-              <form [formGroup]="form" (ngSubmit)="submit()">
-                <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
-                <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
+
+              <form [formGroup]="field" (ngSubmit)="onSubmit()">
+                <ng-container [ngSwitch]="controlsType">
+
+                  <div *ngSwitchCase="'textFiled'">
+                    <mat-card class="controls-body-heading">Text Field</mat-card>
+                    <mat-card fxLayout="column">
+                      <mat-form-field class="" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput placeholder="Enter the label" formControlName="label">
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" appearance="outline">
+                        <mat-label>Select Type</mat-label>
+                        <mat-select formControlName="type">
+                          <mat-option>None</mat-option>
+                          <mat-option value="text">Text</mat-option>
+                          <mat-option value="date">Date</mat-option>
+                          <mat-option value="file">Upload</mat-option>
+                          <mat-option value="number">Number</mat-option>
+                          <mat-option value="tel">Tel</mat-option>
+                          <mat-option value="color">Color</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Placeholder</mat-label>
+                        <input matInput placeholder="Enter the Placeholder" formControlName="placeholder">
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Describe</mat-label>
+                        <input matInput placeholder="Enter the Describe" formControlName="describe">
+                      </mat-form-field>
+
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Default Value</mat-label>
+                        <input matInput placeholder="Enter the Default value" formControlName="defaults">
+                      </mat-form-field>
+
+                      <mat-checkbox style="margin-left: 50px;" class="" formControlName="required">Required
+                      </mat-checkbox>
+
+                    </mat-card>
+
+                  </div>
+
+                  <div *ngSwitchCase="'textArea'">
+                    <mat-card class="controls-body-heading">TextArea</mat-card>
+                    <mat-card fxLayout="column">
+                      <mat-form-field class="" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput placeholder="Enter the label" formControlName="label">
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Minimum</mat-label>
+                        <input matInput placeholder="Enter the Placeholder" formControlName="min">
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Maximum</mat-label>
+                        <input matInput placeholder="Enter the Describe" formControlName="max">
+                      </mat-form-field>
+
+                      <mat-checkbox style="margin-left: 50px;" class="" formControlName="required">Required
+                      </mat-checkbox>
+
+                    </mat-card>
+
+                  </div>
+
+                  <div *ngSwitchCase="'checkBox'">
+                    <mat-card class="controls-body-heading">CheckBox</mat-card>
+                    <mat-card fxLayout="column">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Select Type</mat-label>
+                        <mat-select formControlName="type">
+                          <mat-option>None</mat-option>
+                          <mat-option value="radio">Radio</mat-option>
+                          <mat-option value="checkbox">checkBox</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput placeholder="Enter the Placeholder" formControlName="label">
+                      </mat-form-field>
+
+                      <mat-form-field style="margin-left: 50px;" class="" appearance="outline">
+                        <mat-label>Maximum</mat-label>
+                        <input matInput placeholder="Enter the Describe" formControlName="max">
+                      </mat-form-field>
+
+                      <mat-checkbox style="margin-left: 50px;" class="" formControlName="required">Required
+                      </mat-checkbox>
+
+                    </mat-card>
+
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <h1>radio</h1>
+                  </div>
+                  <div *ngSwitchCase="'select'">
+                    <h1>select</h1>
+                  </div>
+                  <div *ngSwitchCase="'date'">
+                    <h1>date</h1>
+                  </div>
+                  <div *ngSwitchCase="'email'">
+                    <h1>email</h1>
+                  </div>
+
+                  <div *ngSwitchDefault>
+
+                  </div>
+
+                </ng-container>
+
+                <mat-card style='margin-top:10px;' fxLayout="row" fxLayoutAlign="end start">
+                  <button type="submit" mat-raised-button color="primary" (click)="pushValue()">Add</button>
+                </mat-card>
               </form>
             </div>
+
+
+
+
           </mat-card-content>
         </mat-card>
       </div>
@@ -55,14 +181,21 @@
           </div>
           <div>
             <pre>
-              {{form.value|json}}
+              <!-- {{form.value|json}} <br> -->
+              <!-- Form : {{ form.get("arr").value | json }} -->
+              <!-- Filed : {{field.value|json}} <br> -->
+
+              {{storeValue|json}}
+
+              <!-- Field : {{ filed.get("name").value | json }} -->
             </pre>
           </div>
           <div fxLayout="row" fxLayoutAlign="end">
-            <button class="btn-ctrl" mat-raised-button color="accent">Submit</button>
+            <button mat-raised-button color="accent">Submit</button>
           </div>
         </mat-card>
       </footer>
     </div>
   </div>
 </div>
+

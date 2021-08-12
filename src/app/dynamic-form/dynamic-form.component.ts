@@ -1,79 +1,99 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+// import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.css']
 })
+
+
 export class DynamicFormComponent implements OnInit {
 
-  form = new FormGroup({});
-  model = {
-    textFiled: [{}],
-  };
-  options: FormlyFormOptions = {};
+  form: FormGroup;
+  arr: FormArray;
+  constructor(private fb: FormBuilder) {
+    this.form = fb.group({
+      arr: fb.array([this.storeValue])
+    })
+  }
 
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'textFiled',
-      type: 'textFiled',
+  field = this.fb.group({
+    label: [],
+    type: [],
+    placeholder: [],
+    describe: [],
+    defaults: [],
+    max: [],
+    min: [],
+    required: [],
+    option: this.fb.group({
+      
+    })
+  })
 
-      templateOptions: {
-        fxFlex: '50',
-        fxLayout: "row",
-        attributes: {
-          style: 'color:red',
-          class: 'filed'
-        }
-        // addText: 'Add another investment',
-      },
+  test: any;
+  storeValue: textField[] = [];
+  controlsType: any;
 
-      fieldArray: {
-        fieldGroup: [
-          {
-            key: 'label',
-            type: 'input',
-            templateOptions: {
-              label: 'label',
-              appearance: 'outline',
+  pushValue() {
 
-            },
+    this.storeValue.push(
+      // {
+      //   label: this.field.get('label').value,
+      //   type: this.field.get('type').value,
+      //   placeholder: this.field.get('placeholder').value,
+      //   describe: this.field.get('describe').value,
+      //   defaults: this.field.get('defaults').value,
+      //   required: this.field.get('required').value,
+      // }
 
+      this.getValue
+    );
 
-          },
-          {
-            key: 'placeholder',
-            type: 'input',
-            templateOptions: {
-              label: 'Placeholder',
-              placeholder: 'Enter the key value',
-              appearance: 'outline'
-            },
-
-
-            // expressionProperties: {
-            //   'templateOptions.label': 'model.label',
-            // }
-
-          },
-
-
-        ],
-
-      },
-    },
-
-  ];
-
-  submit() {
-    alert(JSON.stringify(this.model));
+    console.log(this.storeValue);
+    this.field.reset();
   }
 
 
-  constructor() { }
 
-  ngOnInit(): void { }
+  get getValue() {
+    let label = this.field.get('label').value;
+    let type = this.field.get('type').value;
+    let placeholder = this.field.get('placeholder').value;
+    let describe = this.field.get('describe').value;
+    let defaults = this.field.get('defaults').value;
+    let max = this.field.get('max').value;
+let min = this.field.get('min').value;
+let required = this.field.get('required').value;
 
+return { label, type, placeholder, describe, defaults, max, min, required };
+  }
+
+
+onChanged(num: any) {
+  this.arr.push(num.value)
+}
+
+onChange(type: any) {
+  this.controlsType = type;
+}
+
+onSubmit() {
+  // alert(JSON.stringify(this.form.value));
+}
+ngOnInit(): void {}
+
+}
+
+export interface textField {
+  label: any,
+  type: any,
+  placeholder: any,
+  describe: any,
+  defaults: any,
+  required: any,
+  min: number,
+  max: number,
 }

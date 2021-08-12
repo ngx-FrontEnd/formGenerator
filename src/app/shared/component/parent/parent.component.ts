@@ -9,66 +9,66 @@ import { NgModule } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  form!:FormGroup;
+  form!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-// --------------------------inputFiled------------------------------- -->
+    // --------------------------inputFiled------------------------------- -->
 
-    // this.form = this.fb.group({
-    //   name: ['',''],
-    //   email: ['',[Validators.required,Validators.email]],
-    // });
-// ------------TextArea----------------
+    this.form = this.fb.group({
+      name: ['', ''],
+      email: ['', [Validators.required, Validators.email]],
+    });
+    // ------------TextArea----------------
     // this.form = this.fb.group({
     //  address:['',[Validators.required,Validators.maxLength(50),Validators.minLength(10)]],
     // });
-// ------------Checkbox----------------
-  this.form = this.fb.group({
-   skil:['']
-  });
+    // ------------Checkbox----------------
+    // this.form = this.fb.group({
+    //   skil: ['']
+    // });
   }
 
-// ------------inputFiled----------------
-    
-  //   get nameErrorMessage(){
-  //      const name=this.form.get('name');
-  //      return name?.hasError('required')?'Name is required':'';
-  //   }   
-  
-  // get emailErrorMessage(){
-  //   const email=this.form.get('email');
-  //   return email?.hasError('required')?'email is required': email?.hasError('email')?'email is not valid' :'';
-  // }
+  // ------------inputFiled----------------
 
-  // get name(){
-  //   return this.form.get('name');
-  // }
-  // get email(){
-  //   return this.form.get('email');
-  // }
+  get nameErrorMessage() {
+    const name = this.form.get('name');
+    return name?.hasError('required') ? 'Name is required' : '';
+  }
+
+  get emailErrorMessage() {
+    const email = this.form.get('email');
+    return email?.hasError('required') ? 'email is required' : email?.hasError('email') ? 'email is not valid' : '';
+  }
+
+  get name() {
+    return this.form.get('name');
+  }
+  get email() {
+    return this.form.get('email');
+  }
 
 
-  // onSubmit(): any {
-  //   console.log(this.form.value);
-    
-  // }
-  // reset(){
-  //   this.form.reset;
-  // }
-  
-// ------------TextArea----------------
+  onSubmit(): any {
+    console.log(this.form.value);
+
+  }
+  reset() {
+    this.form.reset;
+  }
+
+  // ------------TextArea----------------
 
   // get addressErrorMessage(){
   //   const address=this.form.get("address");
   //   return address;
   // }
 
-// ------------checkBox----------------
+  // ------------checkBox----------------
 
-onSubmit(){
- console.log(this.form.value);
- 
-  }
+  // onSubmit() {
+  //   console.log(this.form.value);
 
-  ngOnInit(): void {}
+  // }
+
+  ngOnInit(): void { }
 }

@@ -1,6 +1,8 @@
-import { MaterialModule } from './modules/material.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
+import { CommonModule } from './modules/common.module';
+import { MaterialModule } from './modules/material.module';
+
 import { ButtonComponent } from './component/button/button.component';
 import { CheckboxComponent } from './component/checkbox/checkbox.component';
 import { InputComponent } from './component/input/input.component';
@@ -20,8 +22,7 @@ import { RadioButtonComponent } from './component/radio-button/radio-button.comp
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { FormDebugComponent } from './component/form-debug/form-debug.component';
+import { TextFiledComponent } from './component/text-filed/text-filed.component';
 
 const sharedComponent = [
   ButtonComponent,
@@ -40,18 +41,18 @@ const sharedComponent = [
   ParentComponent,
   ChildComponent,
   BadgeComponent,
+  TextFiledComponent,
 ];
 
 @NgModule({
-  declarations: [sharedComponent, FormDebugComponent],
+  declarations: [sharedComponent,],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule,
-
   ],
-  exports: [sharedComponent,FormDebugComponent,MaterialModule],
+  exports: [sharedComponent, MaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule],
 })
-export class SharedModule {}
+export class SharedModule { }

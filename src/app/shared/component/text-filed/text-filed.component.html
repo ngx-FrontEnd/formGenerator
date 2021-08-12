@@ -1,0 +1,13 @@
+<mat-form-field class="example-full-width" [appearance]="appearance">
+  <mat-label>{{ label }}</mat-label>
+  <!-- <mat-icon matPrefix >phone</mat-icon> -->
+  <input [type]="type" [value]='value' (input)="change($event)" [disabled]="disabled" (blur)="onTouched()" matInput
+    [placeholder]="placeholder" />
+  <mat-icon matSuffix [ngStyle]="{ display: iconVisibility }">{{
+    icon
+    }}</mat-icon>
+  <mat-hint>
+    {{ hint }}
+    <ng-content select='.inputFiledErrorMessage'></ng-content>
+  </mat-hint>
+</mat-form-field>

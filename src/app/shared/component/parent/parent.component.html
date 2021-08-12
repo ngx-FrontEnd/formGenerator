@@ -1,22 +1,22 @@
 <br>
 <br>
+
 <br>
 <!-- --------------------------inputFiled------------------------------- -->
 
-<!--  
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
   <app-input formControlName='name' [appearance]="'fill'" [label]="'Name'" [required]="'required'">
 
     <div class="inputFiledErrorMessage">
-      <div *ngIf="name?.invalid && name?.touched" class="text-danger">{{nameErrorMessage}}</div>     
+      <div *ngIf="name?.invalid && name?.touched" class="text-danger">{{nameErrorMessage}}</div>
     </div>
 
   </app-input>
   <br>
   <app-input formControlName='email' [label]="'email'" [placeholder]="'example@xyz.com'" [appearance]="'legacy'"
     [icon]="'email'" [required]="'required'" [type]="'email'">
-    
+
     <div class="inputFiledErrorMessage">
       <div *ngIf="email?.touched && email?.invalid" class="text-danger">
         {{emailErrorMessage}}
@@ -24,7 +24,7 @@
     </div>
 
   </app-input>
-  
+
   <br>
   <br>
   <app-button [type]="'submit'" [disabled]="!form.valid"></app-button>
@@ -32,9 +32,9 @@
 </form>
 
 {{form.get('name')?.touched}}
-{{form.get('email')?.touched}} 
+{{form.get('email')?.touched}}
 
-{{form.value|json}} -->
+<!-- {{form.value|json}}  -->
 
 <!-- --------------------------Textarea------------------------------- -->
 
@@ -51,11 +51,11 @@
         </span>
 
         <span *ngIf="addressErrorMessage?.errors?.minlength">
-          Minimum 10 letters 
+          Minimum 10 letters
         </span>
-        
+
         <span *ngIf="addressErrorMessage?.errors?.maxlength">
-          Maximum 50 letters 
+          Maximum 50 letters
         </span>
 
       </span>
@@ -76,12 +76,12 @@ Touched : {{form.get('address')?.touched}} <br>
 Dirty : {{form.get('address')?.dirty}} <br> -->
 
 <!-- --------------------------CheckBox------------------------------- -->
-
+<!--
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-<app-checkbox [labelPosition]="'before'" [color]="'warn'" [value]="'sports'" formControlName="skil"></app-checkbox>
+  <app-checkbox [labelPosition]="'before'" [color]="'warn'" [value]="'sports'" formControlName="skil"></app-checkbox>
 
 </form>
 
 Value : {{form.get('skill')?.value}} <br>
 
-Touched  : {{form.get('skil')?.touched}}
+Touched : {{form.get('skil')?.touched}} -->
