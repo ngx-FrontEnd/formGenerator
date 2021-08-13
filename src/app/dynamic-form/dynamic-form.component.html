@@ -1,48 +1,68 @@
 <div class="container" style="box-shadow: -1px -1px 5px 0px #CBC9D3;">
-  <div class="content" fxLayout="row" fxLayoutGap="20px">
+  <div class="content" fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="20px">
     <!-- left side -->
     <div class="leftSide" fxFlex="20">
       <mat-card>
         <mat-card-content>
-          <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
-            <button class="btn-ctrl-heading" mat-raised-button color="warn"> Controls </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("textFiled")'> Text Field
+
+          <div fxLayout="column" fxLayout.md="row wrap" fxLayoutAlign="start center" fxLayoutAlign.md="center start"
+            fxLayoutGap="10px" fxFill>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl-heading" mat-raised-button color="warn"
+              fxFlex.md="100"> Controls </button>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("textFiled")'>
+              Text Field
             </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("textArea")'> Text Area
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("textArea")'>
+              Text Area
             </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("checkBox")'> Check Box
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("checkBox")'>
+              Check Box
             </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("radio")'> Radio </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("select")'> Select </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("date")'> Date </button>
-            <button class="btn-ctrl" mat-raised-button color="primary" (click)='onChange("email")'> Email </button>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("radio")'>
+              Radio </button>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("select")'>
+              Select </button>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("date")'> Date
+            </button>
+            <button [ngClass.md]="'fxClass-md-controls'" class="btn-ctrl" mat-raised-button color="primary"
+              fxFlex.md="14.2" (click)='onChange("email")'>
+              Email </button>
           </div>
         </mat-card-content>
       </mat-card>
 
     </div>
     <!-- right side -->
-    <div class="rightSide" fxLayout="column" fxFlex="80" fxLayoutGap="20px">
-      <header class="header">
-        <mat-card>
-          <mat-card-title>Form Title</mat-card-title>
-          <mat-card-subtitle>Enter the Form Title</mat-card-subtitle>
-          <mat-card-content>
-            <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
-              <mat-label>Label</mat-label>
-              <input matInput placeholder="Header">
-            </mat-form-field>
-          </mat-card-content>
-        </mat-card>
-      </header>
-      <div class="body">
-        <mat-card style=" min-height: 220px; border: 2px dashed silver;">
-          <mat-card-header>
-          </mat-card-header>
-          <mat-card-content>
-            <div>
+    <div class="rightSide" fxLayout="column" fxFlex="80" fxLayoutGap="10px">
 
-              <form [formGroup]="field" (ngSubmit)="onSubmit()">
+
+
+      <div class="body">
+        <form [formGroup]="field" (ngSubmit)="onSubmit()">
+          <header class="header">
+            <mat-card>
+              <!-- <mat-card-title>Form Title</mat-card-title> -->
+              <!-- <mat-card-subtitle>Enter the Form Title</mat-card-subtitle> -->
+              <mat-card-content>
+                <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+                  <mat-label>Heading</mat-label>
+                  <input matInput placeholder="Enter the form Heading" formControlName="title">
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
+          </header>
+          <mat-card style=" min-height: 220px; border: 2px dashed silver;">
+            <mat-card-header>
+            </mat-card-header>
+            <mat-card-content>
+              <div>
+
                 <ng-container [ngSwitch]="controlsType">
 
                   <div *ngSwitchCase="'textFiled'">
@@ -165,14 +185,14 @@
                 <mat-card style='margin-top:10px;' fxLayout="row" fxLayoutAlign="end start">
                   <button type="submit" mat-raised-button color="primary" (click)="pushValue()">Add</button>
                 </mat-card>
-              </form>
-            </div>
+              </div>
 
 
 
 
-          </mat-card-content>
-        </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </form>
       </div>
       <footer class="footer">
         <mat-card>
@@ -191,11 +211,10 @@
             </pre>
           </div>
           <div fxLayout="row" fxLayoutAlign="end">
-            <button mat-raised-button color="accent">Submit</button>
+            <button mat-raised-button color="accent" (click)="submit()">Submit</button>
           </div>
         </mat-card>
       </footer>
     </div>
   </div>
 </div>
-

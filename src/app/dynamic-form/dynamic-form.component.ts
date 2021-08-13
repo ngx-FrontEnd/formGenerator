@@ -20,6 +20,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   field = this.fb.group({
+    title: [],
     label: [],
     type: [],
     placeholder: [],
@@ -29,12 +30,13 @@ export class DynamicFormComponent implements OnInit {
     min: [],
     required: [],
     option: this.fb.group({
-      
+
     })
   })
 
-  test: any;
+
   storeValue: textField[] = [];
+
   controlsType: any;
 
   pushValue() {
@@ -59,35 +61,36 @@ export class DynamicFormComponent implements OnInit {
 
 
   get getValue() {
+    let title = this.field.get('title').value;
     let label = this.field.get('label').value;
     let type = this.field.get('type').value;
     let placeholder = this.field.get('placeholder').value;
     let describe = this.field.get('describe').value;
     let defaults = this.field.get('defaults').value;
     let max = this.field.get('max').value;
-let min = this.field.get('min').value;
-let required = this.field.get('required').value;
+    let min = this.field.get('min').value;
+    let required = this.field.get('required').value;
 
-return { label, type, placeholder, describe, defaults, max, min, required };
+    return { title, label, type, placeholder, describe, defaults, max, min, required };
   }
 
 
-onChanged(num: any) {
-  this.arr.push(num.value)
-}
+  onChange(type: any) {
+    this.controlsType = type;
+  }
 
-onChange(type: any) {
-  this.controlsType = type;
-}
-
-onSubmit() {
-  // alert(JSON.stringify(this.form.value));
-}
-ngOnInit(): void {}
+  onSubmit() {
+    // alert(JSON.stringify(this.form.value));
+  }
+  submit() {
+    alert(JSON.stringify(this.storeValue));
+  }
+  ngOnInit(): void { }
 
 }
 
 export interface textField {
+  title: any,
   label: any,
   type: any,
   placeholder: any,
