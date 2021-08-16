@@ -1,12 +1,15 @@
 .container{
-  margin: 10px;
+  /* margin:0 10px; */
 }
 .content{
   padding: 10px;
-  position: sticky;
-  top: 0px;
 }
-
+.menu-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 .btn-ctrl{
 width: 70%;
 }
@@ -22,12 +25,35 @@ margin: 5px 0;
 /* background-color: green; */
 }
 
-
+.Controls-gt-md{
+position: sticky;
+top: 80px;
+}
 .controls-body-heading{
   font-size: x-large;
   font-weight: bold;
 }
 
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 .header{
   margin-bottom: 10px;
+}
+.download-app{
+  position: relative;
+  /* background-color: red; */
+}
+.download-app-gt-md{
+position:fixed;
+top: 90px;
+right: 14px;
+
+}
+.download-app-md{
+/* background-color: green; */
+position:fixed;
+bottom: 10px;
+left: 20px;
 }

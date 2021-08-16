@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class SelectComponent implements OnInit {
 
   constructor() { }
+  @HostBinding('style.color') color = 'green';
+
+  @HostListener('click') change() {
+    this.color = 'red';
+  }
 
   ngOnInit(): void {
   }

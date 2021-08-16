@@ -23,6 +23,7 @@ import { RadioButtonComponent } from './component/radio-button/radio-button.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TextFiledComponent } from './component/text-filed/text-filed.component';
+import { HigelightDirective } from './directive/higelight.directive';
 
 const sharedComponent = [
   ButtonComponent,
@@ -45,7 +46,7 @@ const sharedComponent = [
 ];
 
 @NgModule({
-  declarations: [sharedComponent,],
+  declarations: [sharedComponent, HigelightDirective,],
   imports: [
     CommonModule,
     FormsModule,
@@ -53,6 +54,6 @@ const sharedComponent = [
     FlexLayoutModule,
     MaterialModule,
   ],
-  exports: [sharedComponent, MaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule],
+  exports: [sharedComponent, MaterialModule, CommonModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, HigelightDirective],
 })
 export class SharedModule { }
