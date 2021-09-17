@@ -235,6 +235,13 @@
           aria-label="Example icon button with a delete icon" (click)="addToHomeScreen()">
           <mat-icon>font_download</mat-icon>
         </button>
+
+        <button [ngClass.gt-md]="{'download-app-gt-md':headerPosition}"
+          [ngClass.md]="{'download-app-md':downloadAppPossition}"
+          [ngClass.lt-md]="{'download-app-md':downloadAppPossition}" mat-fab color="accent"
+          aria-label="Example icon button with a delete icon" (click)="addToHomeScreen1()">
+          <mat-icon>font_download</mat-icon>
+        </button>
       </div>
 
     </mat-card>
